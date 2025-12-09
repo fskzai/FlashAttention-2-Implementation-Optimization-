@@ -1,0 +1,35 @@
+Objective :
+
+This assignment was aimed at creating a realistic Reinforcement Learning (RL) task to train the LLM that emulates the work of an AI/ML engineer, where the model needs to implement FlashAttention-2 with its own modifications, optimize it to run on a GPU, and evaluate the performance with the help of benchmarking and testing. The calibration of the task is to obtain 10-40 percent pass rate with Claude Haiku which  is offering a  attainable benchmark that guarantees failure for significant reasons like memory or gradient errors, rewards partial progress through a structured scoring system, and teaches useful skills in attention optimization, PyTorch integration, and performance tuning—all within a succinct, human-reviewable codebase under 300 lines.
+
+Solution : 
+
+This code is the implementation of Reinforcement Learning (RL) task in the training of LLM, which includes the implementation and optimization of FlashAttention-2 - for minimizing memory footprint and maximizing speed by tiling and re-computation. The task is a simulated example of real AI/ML engineering work for the development of a  model with custom alterations such as activation-aware dropout, causal masking with lookahead, and multi-precision assistance and optimize to Tesla V100-SXM2-32GB GPU memory patterns and numerical accuracy. The solution contains a clear prompt, a strong grading pipeline, and a partial-credit grading system that gives points on memory reduction, speed, gradient accuracy and coverage on the test, so that the pass rate is within the target of 10-40% (with an achieved score of just under 30 in practice). The task offers a robust learning signal (i.e. failure modes) and incentives incremental progress (awarding) which is packaged in less than 300 human-readable, well-documented lines of code. The produced outputs such as a JSON-formatted evaluation data and a step-by-step report prove that the task is in line with all the requirements of the assignment and it is an effective way to learn advanced skills in the field of optimizing the use of the GPU and apply them in practice in the field of advanced ML engineering.
+
+Installation :
+
+# Install required packages
+
+!pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+!pip install anthropic numpy psutil gputil pytest transformers
+
+Module 1: Setup and Installation
+This initial module handles environment preparation by installing necessary Python packages (PyTorch, Anthropic API, NumPy, etc.), imports all required libraries, sets random seeds for reproducibility, and checks GPU availability to ensure the task runs on appropriate hardware with CUDA support enabled.
+Module 2: Task Definition and Prompt
+This module defines the core RL task through a comprehensive prompt that outlines the FlashAttention-2 implementation requirements, including class signature specifications, custom modifications (dropout, causal masking, precision modes), optimization targets, testing criteria, and success metrics, all structured to clearly communicate what the model must produce.
+Module 3: Reference Implementation for Grading
+Here, a simplified reference implementation of FlashAttention2 is provided as a baseline for evaluation, implementing basic attention with causal masking and dropout but lacking the advanced optimizations required in the task, serving as a comparison point for memory usage and speed.
+Module 4: Enhanced Evaluation and Grading Functions
+This comprehensive module contains the core evaluation infrastructure including data classes for benchmark results, code processing utilities to clean and extract model submissions, custom JSON encoders for safe serialization, and the main FlashAttentionEvaluator class that tests implementations across multiple configurations while calculating performance metrics.
+Module 5: Main Evaluation Loop with Claude API
+This module orchestrates the interaction with Claude's API, handling message creation, response parsing, code extraction from model outputs, and running multiple evaluation iterations while implementing intelligent error handling, rate limiting, and result collection to ensure reliable testing across multiple runs.
+Module 6: Run the Complete Evaluation
+The execution module initializes the Claude evaluator with API credentials and runs the main evaluation loop for the specified number of iterations (10 runs as required), including comprehensive error handling and fallback mechanisms to ensure the evaluation completes even if individual runs fail.
+Module 7: Display Results and Statistics
+This output module processes and presents evaluation results in a human-readable format, calculating key statistics like pass rates, score distributions, and performance metrics, then saves the structured results to JSON files for persistence and further analysis.
+Module 8: Generate Final Report
+The reporting module creates a detailed Markdown-formatted evaluation report summarizing task performance, scoring methodology, design assessment, and conclusions, providing both console output and saved file documentation of the RL task's effectiveness.
+Module 9: Detailed Analysis
+This analytical module performs deeper statistical analysis of the results, including score distribution breakdowns, performance metric calculations, and task design assessment, generating insights about failure modes and learning gradients that inform RL training strategies.
+Module 10: Final Summary
+The concluding module provides a concise, formatted summary of the entire evaluation process, highlighting key findings, task design quality, generated artifacts, and readiness for RL training integration, serving as a clear endpoint for the evaluation pipeline.
